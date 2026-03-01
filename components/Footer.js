@@ -1,9 +1,6 @@
 // Footer.js
 import { StickyFooter } from "./StickyFooter";
 import BubbleMenu from "./BubbleMenu";
-import { Target } from "lucide-react";
-
-import PixelTrail from "./PixelTrail";
 
 export function Footer() {
     return (
@@ -77,56 +74,31 @@ export function Content() {
     ];
 
     return (
-<section className="bg-white dark:bg-gray-800 min-h-screen relative overflow-hidden">
-  
-  {/* 1. LAYER BACKGROUND (PixelTrail) - Paling Bawah */}
-  <div className="absolute inset-0 z-0 pointer-events-auto">
-    <PixelTrail
-      gridSize={50}
-      trailSize={0.1}
-      maxAge={250}
-      interpolate={5}
-      color="#5227FF"
-      gooeyFilter={{ id: "custom-goo-filter", strength: 2 }}
-      gooeyEnabled
-      gooStrength={2}
-      // Pastikan props di bawah ini ada jika komponen mendukungnya:
-      backgroundColor="transparent" 
-    />
-  </div>
+        <div className="h-full w-full flex flex-col justify-center items-center">
 
-  {/* 2. LAYER KONTEN (Teks & Menu) - Paling Atas */}
-  <div className="relative z-10 h-full w-full flex flex-col justify-between min-h-screen pointer-events-none">
-    
-    {/* Bagian Atas/Tengah: H1 */}
-    <div className="flex flex-1 justify-center items-center p-10 md:p-20">
-      <h1  className="text-[14vw] leading-[0.8] ">
-        Thanks for Visiting
-      </h1>
-    </div>
+            <div className="py-8 px-12 h-full w-full flex flex-col justify-between">
+                <div className="flex justify-between flex-col  sm:flex-row items-end p-20">
+                    <h1 className="text-[14vw] leading-[0.8] ">Thanks for Visiting</h1>
+                </div>
 
-    {/* Bagian Bawah: Menu & Copyright */}
-    <div className="py-8 px-12 flex justify-between items-end w-full">
-      <div className="pointer-events-auto">
-        <BubbleMenu
-          logo={<span style={{ fontWeight: 700 }}>RB</span>}
-          items={items}
-          menuAriaLabel="Toggle navigation"
-          menuBg="#00FFFF"
-          menuContentColor="#111111"
-          useFixedPosition={false}
-          animationEase="back.out(1.5)"
-          animationDuration={0.5}
-          staggerDelay={0.12}
-        />
-      </div>
-      
-      <p className="select-none text-gray-600 dark:text-gray-400 font-medium pointer-events-none">
-        ©{tahun} copyright
-      </p>
-    </div>
+                <div className="flex justify-between flex-col gap-4 sm:flex-row items-end shrink-0 gap-20">
+                    {/* <div className="flex flex-col gap-2"> */}
+                    <BubbleMenu
+                        logo={<span style={{ fontWeight: 700 }}>RB</span>}
+                        items={items}
+                        menuAriaLabel="Toggle navigation"
+                        menuBg="#00FFFF"
+                        menuContentColor="#111111"
+                        useFixedPosition={false}
+                        animationEase="back.out(1.5)"
+                        animationDuration={0.5}
+                        staggerDelay={0.12}
+                    />
+                    {/* </div> */}
 
-  </div>
-</section>
+                    <p>©{tahun} copyright</p>
+                </div>
+            </div>
+        </div>
     );
 }
