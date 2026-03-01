@@ -155,7 +155,7 @@ export default function HeroSection() {
                 className="relative min-h-screen flex items-center justify-center overflow-hidden"
             >
                 {/* Background gradient */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-50 dark:to-gray-900/50 pointer-events-none" />
+                <div className="absolute  bg-gradient-to-b from-transparent to-gray-50 dark:to-gray-900/50 pointer-events-none" />
 
                 <FallingText
                     text={`This site is made as attractive as possible so that you feel comfortable and stay on it for a long time. You can click here and drag anywhere!`}
@@ -173,14 +173,14 @@ export default function HeroSection() {
                 {/* Tombol "Click to Start" - SELALU MUNCUL dari awal */}
                 <motion.button
                     onClick={handleUnlockScroll}
-                    className="absolute bottom-5 left-1/2 transform -translate-x-1/2 cursor-pointer z-20 group"
+                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-20 group"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1, duration: 0.5 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.95 }}
                 >
-                    <div className="flex flex-col items-center gap-2">
+                    <div className="flex flex-col items-center">
                         <span className="text-sm text-gray-500 dark:text-gray-400 bg-white/80 dark:bg-black/30 px-4 py-2 rounded-full backdrop-blur-sm transition-all group-hover:bg-cyan-500/10">
                             Click to Start ↓
                         </span>
@@ -218,7 +218,7 @@ export default function HeroSection() {
                 </AnimatePresence>
 
                 {/* Scroll indicator dots */}
-                <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex flex-col gap-2 z-20">
+                {/* <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex flex-col gap-2 z-20">
                     {[0, 1, 2].map((i) => (
                         <motion.div
                             key={i}
@@ -228,7 +228,7 @@ export default function HeroSection() {
                             transition={{ repeat: Infinity, duration: 1.5 }}
                         />
                     ))}
-                </div>
+                </div> */}
             </section>
         </>
     );
