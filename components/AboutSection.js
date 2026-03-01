@@ -67,7 +67,7 @@ export default function AboutSection() {
                                         Tech stack I work with:
                                     </p>
                                     <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                                        {['Laravel', 'Next.js', 'Javascript', 'Python', 'Tailwind', 'MongoDB', 'GraphQL'].map((tech) => (
+                                        {['Laravel', 'Next.js', 'Javascript', 'Python', 'Tailwind', 'MongoDB', 'SQL', 'NoSQL', 'Machine Learning', "Computer Vision", 'Natural Language Processing', 'Large Language Models'].map((tech) => (
                                             <span
                                                 key={tech}
                                                 className="px-2 sm:px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-cyan-500 hover:bg-cyan-50 dark:hover:bg-cyan-900/20 transition-all"

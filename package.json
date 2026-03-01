@@ -23,7 +23,8 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "tailwind-merge": "^3.5.0",
-    "three": "^0.167.1"
+    "three": "^0.167.1",
+    "timelinejs": "^2.35.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
