@@ -14,17 +14,16 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "Muhamad Usri Yusron",
   description: "Create your website and software needs easily and reliably with me.",
+  // Tambahkan tag meta verifikasi di sini
+  other: {
+    'google-site-verification': '-nDkFZs0ACVPHw3Qxzk2Sirqe1Ae7SUQkkU-RgIfzhw',
+  },
 };
-
-<meta name="google-site-verification" content="-nDkFZs0ACVPHw3Qxzk2Sirqe1Ae7SUQkkU-RgIfzhw" />
-
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
       </body>
     </html>
