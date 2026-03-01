@@ -59,23 +59,15 @@
 .tilted-card-caption {
   pointer-events: none;
   position: absolute;
-  left: 1rem;
-  bottom: 1rem;
-  top: auto;
-  right: auto;
-  border-radius: 20px;
-  background-color: rgba(255, 255, 255, 0.9);
-  backdrop-filter: blur(5px);
-  padding: 0.5rem 1rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: #1a1a1a;
+  left: 0;
+  top: 0;
+  border-radius: 4px;
+  background-color: #fff;
+  padding: 4px 10px;
+  font-size: 10px;
+  color: #2d2d2d;
   opacity: 0;
   z-index: 3;
-  white-space: nowrap;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transform: translateZ(50px); /* Caption lebih ke depan */
 }
 
 /* Mobile alert yang lebih baik */
