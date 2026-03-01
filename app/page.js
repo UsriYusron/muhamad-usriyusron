@@ -10,6 +10,7 @@ import AboutSection from '@/components/AboutSection';
 import Lanyard from '@/components/Lanyard';
 import ExperienceSection from '@/components/Experience';
 import LoadingWithText from '@/components/Loading';
+import Footer from '@/components/Footer';
 
 
 export default function Home() {
@@ -93,6 +94,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Footer />
     </>
   );
 }
