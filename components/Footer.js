@@ -47,7 +47,7 @@ export function Content() {
         {
             label: 'Linkedin',
             href: 'https://www.linkedin.com/in/muhamad-usriyusron/',
-            target: '_blank',
+            Target: '_blank',
             ariaLabel: 'LinkedIn',
             rotation: 8,
             hoverStyles: { bgColor: '#10b981', textColor: '#ffffff' }
@@ -55,7 +55,7 @@ export function Content() {
         {
             label: 'Github',
             href: 'https://github.com/UsriYusron',
-            target: '_blank',
+            Target: '_blank',
             ariaLabel: 'Github',
             rotation: 8,
             hoverStyles: { bgColor: '#f59e0b', textColor: '#ffffff' }
