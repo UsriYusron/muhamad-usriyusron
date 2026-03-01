@@ -15,6 +15,7 @@ export const metadata = {
   title: "Muhamad Usri Yusron",
   description: "Create your website and software needs easily and reliably with me.",
 };
+
 <meta name="google-site-verification" content="-nDkFZs0ACVPHw3Qxzk2Sirqe1Ae7SUQkkU-RgIfzhw" />
 
 
