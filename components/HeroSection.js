@@ -157,6 +157,7 @@ export default function HeroSection() {
                 {/* Background gradient */}
                 <div className="absolute  bg-gradient-to-b from-transparent to-gray-50 dark:to-gray-900/50 pointer-events-none" />
 
+                <div className='w-full h-full flex flex-col lg:flex-row items-center justify-center mb-7'>
                 <FallingText
                     text={`This site is made as attractive as possible so that you feel comfortable and stay on it for a long time. You can click here and drag anywhere!`}
                     highlightWords={["attractive", "possible", "comfortable", "drag"]}
@@ -169,11 +170,12 @@ export default function HeroSection() {
                     mouseConstraintStiffness={0.1}
                     onTrigger={handleFallingTextTrigger}
                 />
+                </div>
 
                 {/* Tombol "Click to Start" - SELALU MUNCUL dari awal */}
                 <motion.button
                     onClick={handleUnlockScroll}
-                    className="absolute bottom-15 left-1/2 transform -translate-x-1/2 cursor-pointer z-20 group"
+                    className="absolute bottom-20 left-1/2 transform -translate-x-1/2 cursor-pointer z-20 group"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1, duration: 0.5 }}
@@ -181,8 +183,8 @@ export default function HeroSection() {
                     whileTap={{ scale: 0.95 }}
                 >
                     <div className="flex flex-col items-center">
-                        <span className="text-sm text-gray-500 dark:text-gray-400 bg-white/80 dark:bg-black/30 px-4 py-2 rounded-full backdrop-blur-sm transition-all group-hover:bg-cyan-500/10">
-                            Click to Start ↓
+                        <span className="text-sm text-gray-500 dark:text-gray-400 bg-white/80 dark:bg-black/30 px-4 rounded-full backdrop-blur-sm transition-all group-hover:bg-cyan-500/10">
+                            Click to Start
                         </span>
                         <motion.div
                             animate={{ y: [0, 10, 0] }}
