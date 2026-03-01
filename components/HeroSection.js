@@ -173,7 +173,7 @@ export default function HeroSection() {
                 {/* Tombol "Click to Start" - SELALU MUNCUL dari awal */}
                 <motion.button
                     onClick={handleUnlockScroll}
-                    className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-20 group"
+                    className="absolute bottom-5 left-1/2 transform -translate-x-1/2 cursor-pointer z-20 group"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 1, duration: 0.5 }}
