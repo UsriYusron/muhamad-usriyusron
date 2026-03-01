@@ -1,12 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion} from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import Navbar from "@/components/Navbar";
 
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
+import Lanyard from '@/components/Lanyard';
 
 
 export default function Home() {
@@ -171,6 +172,30 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+<section className="bg-white dark:bg-gray-800 min-h-screen py-12 relative overflow-hidden">
+  {/* TEKS BACKGROUND BESAR */}
+  <div className="absolute inset-0 flex items-center justify-center opacity-5 dark:opacity-10 pointer-events-none select-none">
+    <h1 className="text-[15vw] md:text-[12vw] lg:text-[10vw] font-black text-gray-900 dark:text-white whitespace-nowrap uppercase tracking-tighter">
+      hire me <br/>to wear your<br/> company lanyard
+    </h1>
+  </div>
+  
+  {/* TEKS BACKGROUND KEDUA (OPSIONAL) */}
+  <div className="absolute inset-0 flex items-end justify-end opacity-5 dark:opacity-10 pointer-events-none select-none">
+    <h1 className="text-[10vw] md:text-[8vw] font-black text-gray-900 dark:text-white rotate-12 translate-x-10 translate-y-10">
+      2024
+    </h1>
+  </div>
+
+  {/* KONTEN UTAMA */}
+  <div className="container mx-auto px-4 relative z-10">
+    {/* Lanyard Component */}
+    <div className="relative w-full h-[600px] md:h-[700px] rounded-2xl overflow-hidden">
+      <Lanyard position={[0, 0, 30]} gravity={[0, -40, 0]} fov={20} transparent={true} />
+    </div>
+  </div>
+</section>
     </>
   );
 }
