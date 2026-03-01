@@ -95,8 +95,8 @@ export default function AboutSection() {
                                     containerWidth="100%"
                                     imageHeight="550px"
                                     imageWidth="100%"
-                                    rotateAmplitude={9}
-                                    scaleOnHover={1.05}
+                                    rotateAmplitude={4}
+                                    scaleOnHover={1}
                                     showMobileWarning={false}
                                     showTooltip
                                     displayOverlayContent
