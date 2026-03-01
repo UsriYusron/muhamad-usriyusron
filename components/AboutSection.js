@@ -1,9 +1,6 @@
 'use client'
 
 import React from 'react'
-import Image from 'next/image'
-import { useState, useEffect, useRef, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 import TiltedCard from '@/components/TitledCard';
 import TrueFocus from '@/components/TrueFocus';
@@ -70,7 +67,7 @@ export default function AboutSection() {
                                         Tech stack I work with:
                                     </p>
                                     <div className="flex flex-wrap gap-1.5 sm:gap-2">
-                                        {['React', 'Next.js', 'TypeScript', 'Node.js', 'Tailwind', 'MongoDB', 'GraphQL'].map((tech) => (
+                                        {['Laravel', 'Next.js', 'Javascript', 'Python', 'Tailwind', 'MongoDB', 'GraphQL'].map((tech) => (
                                             <span
                                                 key={tech}
                                                 className="px-2 sm:px-3 py-1 bg-gray-100 dark:bg-gray-800 rounded-full text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:border-cyan-500 hover:bg-cyan-50 dark:hover:bg-cyan-900/20 transition-all"
@@ -86,7 +83,7 @@ export default function AboutSection() {
                     </section>
 
                     {/* KANAN - Foto dengan efek tilt */}
-                    <section className="w-full lg:w-1/2 flex items-center justify-center bg-white dark:bg-black px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 lg:py-0">
+                    <section className="w-full lg:w-1/2 items-center justify-center bg-white dark:bg-black px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 lg:py-0 hidden sm:flex">
                         <div className="relative w-full max-w-md mx-auto lg:mx-0">
                             {/* Container untuk TiltedCard dengan ukuran responsif */}
                             <div className="transform scale-90 sm:scale-95 md:scale-100 origin-center">
@@ -98,8 +95,8 @@ export default function AboutSection() {
                                     containerWidth="100%"
                                     imageHeight="550px"
                                     imageWidth="100%"
-                                    rotateAmplitude={20}
-                                    scaleOnHover={1.2}
+                                    rotateAmplitude={9}
+                                    scaleOnHover={1.05}
                                     showMobileWarning={false}
                                     showTooltip
                                     displayOverlayContent

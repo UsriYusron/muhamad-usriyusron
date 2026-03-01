@@ -12,7 +12,7 @@ export default function TiltedCard({
   imageSrc,
   altText = 'Muhamad Usri Yusron',
   captionText = 'Muhamad Usri Yusron',
-  containerHeight = '300px',
+  containerHeight = '550px',
   containerWidth = '100%',
   imageHeight = '300px',
   imageWidth = '200px',

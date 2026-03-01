@@ -8,13 +8,14 @@ import Navbar from "@/components/Navbar";
 
 import HeroSection from '@/components/HeroSection';
 import AboutSection from '@/components/AboutSection';
+import PixelTrail from '@/components/PixelTrail';
 
 export default function Home() {
   const [currentSection, setCurrentSection] = useState(0);
   const [hasEnteredAbout, setHasEnteredAbout] = useState(false);
 
-   // 🔥 Handle scroll untuk tracking
-   useEffect(() => {
+  // 🔥 Handle scroll untuk tracking
+  useEffect(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
       const windowHeight = window.innerHeight;
@@ -33,7 +34,7 @@ export default function Home() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [hasEnteredAbout]);
 
-  
+
   return (
     <>
       <Navbar />
@@ -47,18 +48,39 @@ export default function Home() {
       />
 
       {/* Hero Section */}
-      <HeroSection/>
+      <HeroSection />
 
       {/* About Section */}
-      <AboutSection/>
+      <AboutSection />
 
       {/* Section tambahan untuk testing */}
-      <section className="py-20 bg-white dark:bg-gray-800 min-h-screen">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">Skills & Portfolio</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-400">
-            Scroll ke bawah untuk melihat lebih banyak
-          </p>
+      <section className=" bg-white dark:bg-gray-800 min-h-screen">
+        <div className="container mx-auto text-center">
+          {/* Container utama harus relative */}
+          <div style={{ height: '100vh', position: 'relative', overflow: 'hidden' }}>
+
+            {/* 1. Teks diletakkan di atas dengan z-index lebih tinggi */}
+            <div className="relative z-10 pointer-events-none mt-20">
+              <h2 className="text-3xl md:text-4xl font-bold mb-8">Experience & Portfolio</h2>
+              <p className="text-lg text-gray-600 dark:text-gray-400">
+                Scroll ke bawah untuk melihat lebih banyak
+              </p>
+            </div>
+
+            {/* 2. PixelTrail diatur agar memenuhi seluruh container sebagai background */}
+            <div className="absolute inset-0 z-0">
+              <PixelTrail
+                gridSize={50}
+                trailSize={0.1}
+                maxAge={250}
+                interpolate={5}
+                color="#00ffff"
+                gooeyFilter={{ id: "custom-goo-filter", strength: 2 }}
+                className="w-full h-full"
+              />
+            </div>
+
+          </div>
         </div>
       </section>
     </>
