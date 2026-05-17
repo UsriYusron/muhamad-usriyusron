@@ -3,9 +3,11 @@
 import Image from "next/image";
 import Link from 'next/link'
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { data: session } = useSession();
 
   return (
     <nav className="w-full fixed top-0 z-50 border-b border-solid border-black/[.08] bg-white/80 backdrop-blur dark:border-white/[.145] dark:bg-black/80">
@@ -27,6 +29,18 @@ export default function Navbar() {
           <Link href="/" rel="noopener noreferrer" className="flex-shrink-0 px-4 py-2 text-sm font-medium text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors">
             No navbar here, you have to scroll until the end of the page to see it
           </Link>
+          <Link href="/blog" className="px-4 py-2 text-sm font-medium text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors">
+            Blog
+          </Link>
+          {session ? (
+            <Link href="/blog/new" className="px-4 py-2 text-sm font-medium text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors">
+              Tulis Artikel
+            </Link>
+          ) : (
+            <Link href="/login" className="px-4 py-2 text-sm font-medium bg-foreground text-background hover:bg-foreground/90 rounded-md transition-colors">
+              Login
+            </Link>
+          )}
         </div>
 
         {/* Mobile Menu Button */}
@@ -62,6 +76,18 @@ export default function Navbar() {
          <Link href="/" rel="noopener noreferrer" className="flex-shrink-0 px-4 py-2 text-sm font-medium text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors">
             No navbar here, you have to scroll until the end of the page to see it
           </Link>
+          <Link href="/blog" onClick={() => setIsOpen(false)} className="px-4 py-2 text-sm font-medium text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors">
+            Blog
+          </Link>
+          {session ? (
+            <Link href="/blog/new" onClick={() => setIsOpen(false)} className="px-4 py-2 text-sm font-medium text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors">
+              Tulis Artikel
+            </Link>
+          ) : (
+            <Link href="/login" onClick={() => setIsOpen(false)} className="px-4 py-2 text-sm font-medium bg-foreground text-background hover:bg-foreground/90 rounded-md transition-colors">
+              Login
+            </Link>
+          )}
         </div>
       </div>
 

@@ -1,9 +1,9 @@
 'use client'
 
 export default function ExperienceSection() {
-    return (
-        <>
-              <section className="bg-white dark:bg-gray-800 min-h-screen py-12">
+  return (
+    <>
+      <section className="bg-white dark:bg-gray-800 min-h-screen py-12">
         <div className="container mx-auto px-4">
 
           {/* Header Section */}
@@ -40,6 +40,6 @@ export default function ExperienceSection() {
           </div>
         </div>
       </section>
-        </>
-    );
+    </>
+  );
 }

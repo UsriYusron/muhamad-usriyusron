@@ -1,16 +1,30 @@
 // Footer.js
 import { StickyFooter } from "./StickyFooter";
 import BubbleMenu from "./BubbleMenu";
+import Link from "next/link";
+import ArticlePreview from "@/components/blog/ArticlePreview";
 
-export function Footer() {
+export function Footer({ articles = [] }) {
     return (
         <div className="w-full relative">
             {/* Konten utama */}
             <div className="h-[150dvh] w-full">
-                <div className="bg-neutral-200 dark:bg-neutral-800 rounded-3xl h-full flex flex-col items-center justify-center">
-                    <p className="text-xl uppercase text-neutral-950 dark:text-neutral-200 font-medium">
-                        {/* some content */}
-                    </p>
+                <div className="bg-neutral-200 dark:bg-neutral-800 rounded-3xl h-full flex flex-col items-center justify-center px-8 py-12">
+                    {/* Article Preview Section */}
+                    <section className="w-full max-w-md" aria-label="Artikel terbaru">
+                        <h2 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">
+                            Artikel Terbaru
+                        </h2>
+                        <ArticlePreview articles={articles} />
+                        <div className="mt-6">
+                            <Link
+                                href="/blog"
+                                className="inline-block text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white underline underline-offset-4 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 rounded"
+                            >
+                                Lihat Semua Artikel
+                            </Link>
+                        </div>
+                    </section>
                 </div>
             </div>
 

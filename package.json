@@ -9,6 +9,7 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@auth/mongodb-adapter": "3.11.2",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
     "@react-three/rapier": "^2.2.0",
@@ -20,8 +21,10 @@
     "lucide-react": "^0.575.0",
     "matter-js": "^0.20.0",
     "meshline": "^3.3.1",
+    "mongoose": "8.24.0",
     "motion": "^12.34.3",
     "next": "16.1.6",
+    "next-auth": "4.24.14",
     "radix-ui": "^1.4.3",
     "react": "19.2.3",
     "react-dom": "19.2.3",
