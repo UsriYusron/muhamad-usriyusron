@@ -4,6 +4,7 @@ import { authOptions } from '@/lib/auth';
 import { connectDB } from '@/lib/mongodb';
 import Article from '@/lib/models/Article';
 import { generateSlug, ensureUniqueSlug } from '@/lib/blog/slugify';
+import { revalidatePath } from 'next/cache';
 
 /**
  * GET /api/blog
@@ -161,6 +162,11 @@ export async function POST(request) {
       status: articleStatus,
       publishedAt,
     });
+
+    // Revalidasi cache secara On-Demand
+    revalidatePath('/');
+    revalidatePath('/blog');
+    revalidatePath(`/blog/${uniqueSlug}`);
 
     return NextResponse.json({ article }, { status: 201 });
   } catch (error) {

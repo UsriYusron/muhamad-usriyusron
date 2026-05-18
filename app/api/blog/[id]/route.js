@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { connectDB } from '@/lib/mongodb';
 import Article from '@/lib/models/Article';
+import { revalidatePath } from 'next/cache';
 
 /**
  * PUT /api/blog/[id]
@@ -127,6 +128,11 @@ export async function PUT(request, { params }) {
       { new: true, runValidators: true }
     );
 
+    // Revalidasi cache secara On-Demand
+    revalidatePath('/');
+    revalidatePath('/blog');
+    revalidatePath(`/blog/${updatedArticle.slug}`);
+
     return NextResponse.json({ article: updatedArticle });
   } catch (error) {
     console.error('[PUT /api/blog/[id]] Update error:', error);
@@ -184,8 +190,15 @@ export async function DELETE(request, { params }) {
       );
     }
 
+    const slug = article.slug;
+
     // Hapus artikel
     await Article.findByIdAndDelete(id);
+
+    // Revalidasi cache secara On-Demand
+    revalidatePath('/');
+    revalidatePath('/blog');
+    revalidatePath(`/blog/${slug}`);
 
     return NextResponse.json({ success: true });
   } catch (error) {
