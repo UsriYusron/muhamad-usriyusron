@@ -8,15 +8,18 @@ export function Footer({ articles = [] }) {
     return (
         <div className="w-full relative">
             {/* Konten utama */}
-            <div className="h-[150dvh] w-full">
-                <div className="bg-neutral-200 dark:bg-neutral-800 rounded-3xl h-full flex flex-col items-center justify-center px-8 py-12">
+            <div className="min-h-[100dvh] md:h-[150dvh] w-full">
+                <div className="bg-neutral-200 dark:bg-neutral-800 rounded-3xl min-h-[100dvh] md:h-full flex flex-col items-center justify-center px-4 sm:px-8 py-12 md:py-0">
                     {/* Article Preview Section */}
-                    <section className="w-full max-w-md" aria-label="Artikel terbaru">
-                        <h2 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100 mb-4">
-                            Artikel Terbaru
-                        </h2>
+                    <section className="w-full max-w-6xl mx-auto px-4" aria-label="Artikel terbaru">
+                        <div className="text-center mb-8">
+                            <h2 className="text-3xl md:text-4xl font-bold mb-4">Article</h2>
+                            <p className="text-lg text-gray-600 dark:text-gray-400">
+                            read or write your own articles here by joining as a contributor
+                            </p>
+                        </div>
                         <ArticlePreview articles={articles} />
-                        <div className="mt-6 flex justify-center items-center gap-2">
+                        <div className="mt-8 flex flex-col md:flex-row justify-center items-center gap-2">
                             <Link
                                 href="/login"
                                 className="inline-block text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white underline underline-offset-4 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 rounded"

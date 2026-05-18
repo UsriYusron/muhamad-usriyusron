@@ -3,6 +3,6 @@ import { getLatestArticlesForFooter } from '@/lib/blog/actions';
 import Footer from './Footer';
 
 export default async function FooterWrapper() {
-  const articles = await getLatestArticlesForFooter();
+  const articles = await getLatestArticlesForFooter(8);
   return <Footer articles={articles} />;
 }
