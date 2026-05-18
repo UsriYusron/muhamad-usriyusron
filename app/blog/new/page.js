@@ -9,6 +9,9 @@ import BlogEditor from '@/components/blog/BlogEditor';
  * Memeriksa sesi pengguna. Jika tidak ada sesi, redirect ke /login.
  * Jika sesi valid, menampilkan BlogEditor dalam mode buat baru.
  *
+ * Catatan: Komponen BlogEditor juga menangani 401 error dari server
+ * dengan redirect ke /login dan menyimpan draft ke localStorage.
+ *
  * Requirements: 2.1, 2.3
  */
 export const metadata = {
@@ -34,6 +37,11 @@ export default async function NewArticlePage() {
             Isi form di bawah untuk membuat artikel baru.
           </p>
         </header>
+
+        {/* User Info Debug — Remove in production */}
+        <div className="mb-6 p-4 rounded-lg bg-neutral-900 border border-neutral-800 text-xs text-neutral-400">
+          <p>Logged in as: <span className="text-neutral-200 font-semibold">{session.user.email}</span></p>
+        </div>
 
         {/* Editor */}
         <BlogEditor />
