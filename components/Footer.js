@@ -16,7 +16,14 @@ export function Footer({ articles = [] }) {
                             Artikel Terbaru
                         </h2>
                         <ArticlePreview articles={articles} />
-                        <div className="mt-6">
+                        <div className="mt-6 flex justify-center items-center gap-2">
+                            <Link
+                                href="/login"
+                                className="inline-block text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white underline underline-offset-4 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 rounded"
+                            >
+                                Kontribusi penulisan artikel
+                            </Link>
+                            <span className="inline-block text-sm font-medium text-neutral-700 dark:text-neutral-300">atau</span>
                             <Link
                                 href="/blog"
                                 className="inline-block text-sm font-medium text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-white underline underline-offset-4 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-400 rounded"
