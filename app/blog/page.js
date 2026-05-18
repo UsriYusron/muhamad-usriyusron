@@ -26,10 +26,10 @@ export default async function BlogPage({ searchParams }) {
         {/* Header */}
         <header className="mb-12">
           <h1 className="text-4xl font-bold tracking-tight text-neutral-100">
-            Blog
+            Article
           </h1>
           <p className="mt-3 text-neutral-400 text-base">
-            Artikel dan tulisan tentang teknologi, pengembangan web, dan hal-hal menarik lainnya.
+            Articles and writings about technology, web development, and other interesting things.
           </p>
         </header>
 

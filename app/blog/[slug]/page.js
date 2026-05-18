@@ -87,7 +87,7 @@ export default async function ArticlePage({ params }) {
   return (
     <main className="min-h-screen bg-neutral-950 text-neutral-100">
       {/* Navigation Arrows (Space-between layaknya navbar tanpa background) */}
-      <div className="fixed top-4 left-4 right-4 flex items-center justify-between px-8 p-4">
+      <div className="fixed top-4 left-4 right-4  hidden md:flex items-center justify-between px-8 p-4">
         {/* Panah Kiri (Kembali ke Beranda '/') */}
         <Link
           href="/"
@@ -139,7 +139,6 @@ export default async function ArticlePage({ params }) {
       </div>
 
       <article className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-
         {/* Judul */}
         <h1 className="text-3xl sm:text-4xl font-bold tracking-tight text-neutral-100 leading-tight">
           {article.title}
