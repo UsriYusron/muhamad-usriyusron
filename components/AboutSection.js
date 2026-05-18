@@ -17,7 +17,8 @@ export default function AboutSection() {
                         <div className="max-w-2xl mx-auto lg:mx-0 w-full">
 
                             {/* Nama dengan TrueFocus - Responsif */}
-                            <div className='text-center lg:text-left'>
+                            <h1 className='text-center lg:text-left font-black text-neutral-900 dark:text-white'>
+                                <span className="sr-only">Muhamad Usri Yusron - Full Stack Developer & AI Engineer</span>
                                 <TrueFocus
                                     sentence="Muhamad Usri Yusron"
                                     manualMode={false}
@@ -26,7 +27,7 @@ export default function AboutSection() {
                                     animationDuration={0.5}
                                     pauseBetweenAnimations={1}
                                 />
-                            </div>
+                            </h1>
 
                             {/* Bio Text */}
                             <div className="flex flex-col items-center lg:items-start gap-4 sm:gap-6 text-center lg:text-left">

@@ -10,8 +10,13 @@ import BlogFeed from '@/components/blog/BlogFeed';
  * Requirements: 5.1, 5.5, 5.6
  */
 export const metadata = {
-  title: 'Blog | Muhamad Usri Yusron',
-  description: 'Kumpulan artikel dan tulisan tentang teknologi, pengembangan web, dan hal-hal menarik lainnya.',
+  title: 'Blog & Insight Teknologi',
+  description: 'Kumpulan artikel, tutorial, dan tulisan mendalam tentang pengembangan web, Laravel, Next.js, Machine Learning, dan kecerdasan buatan oleh Muhamad Usri Yusron.',
+  openGraph: {
+    title: 'Blog & Insight Teknologi | Muhamad Usri Yusron',
+    description: 'Kumpulan artikel, tutorial, dan tulisan mendalam tentang pengembangan web, Laravel, Next.js, Machine Learning, dan kecerdasan buatan oleh Muhamad Usri Yusron.',
+    type: 'website',
+  },
 };
 
 export default async function BlogPage({ searchParams }) {

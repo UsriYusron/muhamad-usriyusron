@@ -59,9 +59,9 @@ export default function HomeClient() {
 
       <section className="bg-white dark:bg-gray-800 min-h-screen py-12 relative overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center opacity-5 dark:opacity-10 pointer-events-none select-none">
-          <h1 className="text-[15vw] md:text-[12vw] lg:text-[10vw] font-black text-gray-900 dark:text-white whitespace-nowrap uppercase tracking-tighter">
+          <div className="text-[15vw] md:text-[12vw] lg:text-[10vw] font-black text-gray-900 dark:text-white whitespace-nowrap uppercase tracking-tighter text-center" role="presentation">
             hire me <br />to wear your<br /> company lanyard
-          </h1>
+          </div>
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="relative w-full h-[600px] md:h-[700px] rounded-2xl overflow-hidden">

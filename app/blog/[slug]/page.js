@@ -27,13 +27,30 @@ export async function generateMetadata({ params }) {
     };
   }
 
+  const cleanDescription = article.excerpt 
+    ? article.excerpt.replace(/[#*`_\[\]\(\)\-]/g, '').trim() 
+    : `${article.title} - Baca artikel selengkapnya di Blog Muhamad Usri Yusron.`;
+
   return {
     title: `${article.title} | Blog`,
-    description: article.excerpt ?? article.title,
+    description: cleanDescription,
+    alternates: {
+      canonical: `https://usriyusron.my.id/blog/${slug}`,
+    },
     openGraph: {
       title: article.title,
-      description: article.excerpt ?? article.title,
+      description: cleanDescription,
+      type: 'article',
+      url: `https://usriyusron.my.id/blog/${slug}`,
+      publishedTime: article.publishedAt,
+      authors: [article.authorName || 'Muhamad Usri Yusron'],
       images: article.thumbnail ? [{ url: article.thumbnail }] : [],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: article.title,
+      description: cleanDescription,
+      images: article.thumbnail ? [article.thumbnail] : [],
     },
   };
 }
