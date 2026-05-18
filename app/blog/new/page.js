@@ -19,7 +19,7 @@ export default async function NewArticlePage() {
   const session = await getServerSession(authOptions);
 
   if (!session) {
-    redirect('/login');
+    redirect('/login?callbackUrl=/blog/new');
   }
 
   return (

@@ -15,7 +15,8 @@ import { getArticleBySlug } from '@/lib/blog/actions';
  * Menghasilkan metadata dinamis berdasarkan data artikel.
  */
 export async function generateMetadata({ params }) {
-  const article = await getArticleBySlug(params.slug);
+  const { slug } = await params;
+  const article = await getArticleBySlug(slug);
 
   if (!article) {
     return {
@@ -35,7 +36,8 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function ArticlePage({ params }) {
-  const article = await getArticleBySlug(params.slug);
+  const { slug } = await params;
+  const article = await getArticleBySlug(slug);
 
   if (!article) {
     notFound();
@@ -72,23 +74,69 @@ export default async function ArticlePage({ params }) {
           )}
         </div>
 
-        {/* Thumbnail */}
-        {article.thumbnail && (
+        {/* Cover Images Gallery */}
+        {article.coverImages && article.coverImages.length > 0 ? (
+          <div className="mt-8 space-y-4">
+            {/* Main Cover */}
+            <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-neutral-800 shadow-lg">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={article.coverImages[0]}
+                alt={`Cover utama untuk artikel: ${article.title}`}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            
+            {/* Gallery of other covers */}
+            {article.coverImages.length > 1 && (
+              <div className="grid grid-cols-2 gap-4">
+                {article.coverImages.slice(1).map((cover, idx) => (
+                  <div key={idx} className="relative aspect-video rounded-xl overflow-hidden border border-neutral-800 shadow-md">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={cover}
+                      alt={`Cover pendukung ${idx + 2} untuk artikel: ${article.title}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        ) : article.thumbnail ? (
+          // Fallback ke single thumbnail (lama)
           <div className="mt-8 relative w-full aspect-video rounded-xl overflow-hidden border border-neutral-800">
-            <Image
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
               src={article.thumbnail}
               alt={`Thumbnail untuk artikel: ${article.title}`}
-              fill
-              className="object-cover"
-              priority
-              sizes="(max-width: 768px) 100vw, 768px"
+              className="w-full h-full object-cover"
             />
           </div>
-        )}
+        ) : null}
 
         {/* Konten Artikel */}
-        <div className="mt-10 prose prose-invert prose-neutral max-w-none text-neutral-300 leading-relaxed whitespace-pre-wrap">
-          {article.content}
+        <div className="mt-10 max-w-none text-neutral-300 leading-relaxed space-y-6 text-base">
+          {article.paragraphs && article.paragraphs.length > 0 ? (
+            article.paragraphs.map((p, idx) => (
+              <div key={idx} className="space-y-4">
+                <p className="whitespace-pre-wrap">{p.text}</p>
+                {p.imageUrl && (
+                  <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-neutral-800 shadow-md my-6">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={p.imageUrl}
+                      alt={`Gambar pendukung untuk paragraf ${idx + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                )}
+              </div>
+            ))
+          ) : (
+            // Fallback untuk artikel lama yang menyimpannya sebagai teks mentah 'content'
+            <p className="whitespace-pre-wrap">{article.content}</p>
+          )}
         </div>
       </article>
     </main>

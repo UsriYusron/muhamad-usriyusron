@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/auth';
 import { connectDB } from '@/lib/mongodb';
 import Article from '@/lib/models/Article';
 import { generateSlug, ensureUniqueSlug } from '@/lib/blog/slugify';
@@ -85,17 +85,26 @@ export async function POST(request) {
     );
   }
 
-  const { title, content, excerpt, thumbnail, status } = body;
+  const { title, coverImages, paragraphs, excerpt, status } = body;
 
-  // Validasi field wajib: title dan content tidak boleh kosong/whitespace
+  // Validasi field wajib
   const missingFields = [];
   if (!title || !title.trim()) missingFields.push('title');
-  if (!content || !content.trim()) missingFields.push('content');
+  
+  const validCoverImages = Array.isArray(coverImages) ? coverImages.filter(img => img && img.trim() !== '') : [];
+  if (validCoverImages.length < 2) {
+    missingFields.push('coverImages (minimal 2 gambar cover wajib)');
+  }
+  
+  const validParagraphs = Array.isArray(paragraphs) ? paragraphs : [];
+  if (validParagraphs.length === 0 || validParagraphs.some(p => !p.text || !p.text.trim())) {
+    missingFields.push('paragraphs (minimal 1 paragraf, dan isi teks wajib diisi)');
+  }
 
   if (missingFields.length > 0) {
     return NextResponse.json(
       {
-        error: 'Field wajib tidak boleh kosong',
+        error: 'Field wajib tidak boleh kosong atau kurang lengkap',
         fields: missingFields,
       },
       { status: 400 }
@@ -118,23 +127,35 @@ export async function POST(request) {
     const baseSlug = generateSlug(title.trim());
     const uniqueSlug = await ensureUniqueSlug(baseSlug);
 
-    // Auto-generate excerpt dari 160 karakter pertama content jika tidak disediakan
+    // Auto-generate content dari gabungan paragraf
+    const concatenatedContent = validParagraphs.map(p => p.text.trim()).join('\n\n');
+
+    // Auto-generate excerpt dari 160 karakter pertama paragraf pertama jika tidak disediakan
+    const firstParagraphText = validParagraphs[0].text.trim();
     const finalExcerpt =
       excerpt && excerpt.trim()
         ? excerpt.trim().slice(0, 160)
-        : content.trim().slice(0, 160);
+        : firstParagraphText.slice(0, 160);
 
     // Tentukan status dan publishedAt
-    const articleStatus = status === 'published' ? 'published' : 'draft';
-    const publishedAt = articleStatus === 'published' ? new Date() : null;
+    const validStatuses = ['draft', 'pending', 'published'];
+    let articleStatus = validStatuses.includes(status) ? status : 'draft';
+    // Memaksa status menjadi 'pending' (menunggu persetujuan admin) ketika user mencoba mempublikasikan
+    if (articleStatus === 'published') articleStatus = 'pending';
+    const publishedAt = null;
 
     // Simpan artikel ke MongoDB
     const article = await Article.create({
       title: title.trim(),
       slug: uniqueSlug,
-      content: content.trim(),
+      content: concatenatedContent,
+      paragraphs: validParagraphs.map(p => ({
+        text: p.text.trim(),
+        imageUrl: p.imageUrl ? p.imageUrl.trim() : '',
+      })),
       excerpt: finalExcerpt,
-      thumbnail: thumbnail ?? null,
+      coverImages: validCoverImages.map(img => img.trim()),
+      thumbnail: validCoverImages[0].trim(),
       authorId: session.user.id,
       authorName: session.user.name,
       status: articleStatus,

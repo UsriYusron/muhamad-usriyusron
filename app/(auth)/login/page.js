@@ -23,6 +23,7 @@ const ERROR_MESSAGES = {
 function LoginContent() {
   const searchParams = useSearchParams();
   const errorCode = searchParams.get('error');
+  const callbackUrl = searchParams.get('callbackUrl') ?? '/';
   const errorMessage = errorCode
     ? (ERROR_MESSAGES[errorCode] ?? ERROR_MESSAGES.Default)
     : null;
@@ -72,7 +73,7 @@ function LoginContent() {
             {/* Login dengan Google — Requirement 1.1 */}
             <button
               type="button"
-              onClick={() => signIn('google')}
+              onClick={() => signIn('google', { callbackUrl })}
               aria-label="Login dengan Google"
               className="flex w-full items-center justify-center gap-3 rounded-lg border border-border bg-background px-4 py-2.5 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >
@@ -106,7 +107,7 @@ function LoginContent() {
             {/* Login dengan GitHub — Requirement 1.2 */}
             <button
               type="button"
-              onClick={() => signIn('github')}
+              onClick={() => signIn('github', { callbackUrl })}
               aria-label="Login dengan GitHub"
               className="flex w-full items-center justify-center gap-3 rounded-lg border border-border bg-background px-4 py-2.5 text-sm font-medium transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
             >

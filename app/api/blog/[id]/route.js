@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/auth';
 import { connectDB } from '@/lib/mongodb';
 import Article from '@/lib/models/Article';
 
@@ -48,8 +48,11 @@ export async function PUT(request, { params }) {
       );
     }
 
-    // Cek ownership
-    if (session.user.id !== article.authorId.toString()) {
+    // Cek ownership atau admin
+    const isAdmin = session.user.role === 'admin';
+    const isOwner = session.user.id === article.authorId.toString();
+
+    if (!isOwner && !isAdmin) {
       return NextResponse.json(
         { error: 'Anda tidak memiliki izin untuk mengedit artikel ini' },
         { status: 403 }
@@ -67,19 +70,54 @@ export async function PUT(request, { params }) {
       );
     }
 
-    const { title, content, excerpt, thumbnail, status } = body;
+    const { title, coverImages, paragraphs, excerpt, status } = body;
 
     // Bangun objek update hanya dari field yang disediakan
     const updateData = {};
     if (title !== undefined) updateData.title = title;
-    if (content !== undefined) updateData.content = content;
-    if (excerpt !== undefined) updateData.excerpt = excerpt;
-    if (thumbnail !== undefined) updateData.thumbnail = thumbnail;
-    if (status !== undefined) updateData.status = status;
+    
+    if (coverImages !== undefined) {
+      const validCoverImages = Array.isArray(coverImages) ? coverImages.filter(img => img && img.trim() !== '') : [];
+      if (validCoverImages.length < 2) {
+        return NextResponse.json(
+          { error: 'Cover blog wajib memiliki lebih dari 1 gambar (minimal 2).' },
+          { status: 400 }
+        );
+      }
+      updateData.coverImages = validCoverImages.map(img => img.trim());
+      updateData.thumbnail = validCoverImages[0].trim();
+    }
 
-    // Jika status berubah ke 'published' dan publishedAt masih null, set publishedAt sekarang
-    if (status === 'published' && !article.publishedAt) {
-      updateData.publishedAt = new Date();
+    if (paragraphs !== undefined) {
+      const validParagraphs = Array.isArray(paragraphs) ? paragraphs : [];
+      if (validParagraphs.length === 0 || validParagraphs.some(p => !p.text || !p.text.trim())) {
+        return NextResponse.json(
+          { error: 'Paragraf tidak boleh kosong dan wajib memiliki teks.' },
+          { status: 400 }
+        );
+      }
+      updateData.paragraphs = validParagraphs.map(p => ({
+        text: p.text.trim(),
+        imageUrl: p.imageUrl ? p.imageUrl.trim() : '',
+      }));
+      updateData.content = validParagraphs.map(p => p.text.trim()).join('\n\n');
+    }
+
+    if (excerpt !== undefined) updateData.excerpt = excerpt;
+
+    if (status !== undefined) {
+      if (status === 'published') {
+        if (isAdmin) {
+          updateData.status = 'published';
+          if (!article.publishedAt) {
+            updateData.publishedAt = new Date();
+          }
+        } else {
+          updateData.status = 'pending'; // paksa pending jika non-admin mencoba mempublikasikan langsung
+        }
+      } else {
+        updateData.status = status;
+      }
     }
 
     // Update artikel dan kembalikan dokumen terbaru

@@ -56,12 +56,10 @@ export default function ArticlePreview({ articles }) {
               {/* Thumbnail kecil */}
               <div className="relative w-14 h-14 shrink-0 rounded-lg overflow-hidden bg-neutral-700">
                 {thumbnail ? (
-                  <Image
+                  <img
                     src={thumbnail}
                     alt={`Thumbnail artikel: ${title}`}
-                    fill
-                    sizes="56px"
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 ) : (
                   <div

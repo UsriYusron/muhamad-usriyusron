@@ -1,6 +1,6 @@
 import { redirect, notFound } from 'next/navigation';
 import { getServerSession } from 'next-auth';
-import { authOptions } from '@/app/api/auth/[...nextauth]/route';
+import { authOptions } from '@/lib/auth';
 import { getArticleBySlug } from '@/lib/blog/actions';
 import BlogEditor from '@/components/blog/BlogEditor';
 
@@ -18,13 +18,14 @@ export const metadata = {
 };
 
 export default async function EditArticlePage({ params }) {
+  const { slug } = await params;
   const session = await getServerSession(authOptions);
 
   if (!session) {
-    redirect('/login');
+    redirect(`/login?callbackUrl=/blog/${slug}/edit`);
   }
 
-  const article = await getArticleBySlug(params.slug);
+  const article = await getArticleBySlug(slug);
 
   if (!article) {
     notFound();
@@ -38,6 +39,11 @@ export default async function EditArticlePage({ params }) {
     createdAt: article.createdAt?.toISOString() ?? null,
     updatedAt: article.updatedAt?.toISOString() ?? null,
     publishedAt: article.publishedAt?.toISOString() ?? null,
+    paragraphs: article.paragraphs?.map(p => ({
+      text: p.text,
+      imageUrl: p.imageUrl ?? '',
+      _id: p._id?.toString() ?? null,
+    })) ?? []
   };
 
   return (

@@ -44,12 +44,10 @@ export default function ArticleCard({ article }) {
       {/* Thumbnail */}
       <div className="relative w-full aspect-video bg-neutral-700 overflow-hidden">
         {thumbnail ? (
-          <Image
+          <img
             src={thumbnail}
             alt={`Thumbnail artikel: ${title}`}
-            fill
-            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            className="object-cover group-hover:scale-105 transition-transform duration-300"
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
         ) : (
           <div
