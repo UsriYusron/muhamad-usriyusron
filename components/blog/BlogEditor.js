@@ -34,15 +34,15 @@ export default function BlogEditor({ article }) {
   const [title, setTitle] = useState(article?.title ?? '');
   const [excerpt, setExcerpt] = useState(article?.excerpt ?? '');
   
-  // Minimal 2 gambar cover. Jika edit, ambil coverImages. Jika tidak ada, fallback ke thumbnail.
+  // Minimal 1 gambar cover. Jika edit, ambil coverImages. Jika tidak ada, fallback ke thumbnail.
   const [coverImages, setCoverImages] = useState(() => {
-    if (article?.coverImages && article.coverImages.length >= 2) {
+    if (article?.coverImages && article.coverImages.length >= 1) {
       return article.coverImages;
     }
     if (article?.thumbnail) {
-      return [article.thumbnail, ''];
+      return [article.thumbnail];
     }
-    return ['', ''];
+    return [''];
   });
 
   // Paragraf dinamis. Jika edit, ambil paragraphs. Jika tidak ada, split content (\n\n).
@@ -74,8 +74,8 @@ export default function BlogEditor({ article }) {
     }
 
     const filledCovers = coverImages.filter(img => img.trim() !== '');
-    if (filledCovers.length < 2) {
-      newErrors.coverImages = 'Cover blog wajib memiliki minimal 2 gambar cover valid (isi link gambarnya).';
+    if (filledCovers.length < 1) {
+      newErrors.coverImages = 'Cover blog wajib memiliki minimal 1 gambar cover valid (isi link gambarnya).';
       isValid = false;
     }
 
@@ -110,8 +110,8 @@ export default function BlogEditor({ article }) {
   };
 
   const removeCoverImage = (index) => {
-    if (coverImages.length <= 2) {
-      alert('Cover blog wajib memiliki minimal 2 gambar cover.');
+    if (coverImages.length <= 1) {
+      alert('Cover blog wajib memiliki minimal 1 gambar cover.');
       return;
     }
     const newCovers = coverImages.filter((_, i) => i !== index);
@@ -333,7 +333,7 @@ export default function BlogEditor({ article }) {
                     disabled={isSubmitting}
                     className="flex-1 rounded-md border border-neutral-600 bg-neutral-700 px-3 py-1.5 text-neutral-100 placeholder-neutral-500 text-xs focus:outline-none focus:ring-2 focus:ring-neutral-400 disabled:opacity-50"
                   />
-                  {coverImages.length > 2 && (
+                  {coverImages.length > 1 && (
                     <button
                       type="button"
                       onClick={() => removeCoverImage(idx)}

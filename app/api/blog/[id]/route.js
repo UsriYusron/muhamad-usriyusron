@@ -78,9 +78,9 @@ export async function PUT(request, { params }) {
     
     if (coverImages !== undefined) {
       const validCoverImages = Array.isArray(coverImages) ? coverImages.filter(img => img && img.trim() !== '') : [];
-      if (validCoverImages.length < 2) {
+      if (validCoverImages.length < 1) {
         return NextResponse.json(
-          { error: 'Cover blog wajib memiliki lebih dari 1 gambar (minimal 2).' },
+          { error: 'Cover blog wajib memiliki minimal 1 gambar.' },
           { status: 400 }
         );
       }

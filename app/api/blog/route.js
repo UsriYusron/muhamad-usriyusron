@@ -92,8 +92,8 @@ export async function POST(request) {
   if (!title || !title.trim()) missingFields.push('title');
   
   const validCoverImages = Array.isArray(coverImages) ? coverImages.filter(img => img && img.trim() !== '') : [];
-  if (validCoverImages.length < 2) {
-    missingFields.push('coverImages (minimal 2 gambar cover wajib)');
+  if (validCoverImages.length < 1) {
+    missingFields.push('coverImages (minimal 1 gambar cover wajib)');
   }
   
   const validParagraphs = Array.isArray(paragraphs) ? paragraphs : [];
