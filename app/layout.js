@@ -108,8 +108,8 @@ export const metadata = {
   alternates: {
     canonical: 'https://muhamad-usriyusron.vercel.app/',
   },
-  other: {
-    'google-site-verification': '-nDkFZs0ACVPHw3Qxzk2Sirqe1Ae7SUQkkU-RgIfzhw',
+  verification: {
+    google: 'ILWdl7aiqdq0Ai2R8qkZwaCBIAk1fknaQO_rv2rpFLI',
   },
 };
 
