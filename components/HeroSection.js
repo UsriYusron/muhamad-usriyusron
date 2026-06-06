@@ -58,7 +58,7 @@ export default function HeroSection() {
                 >
                     <div className="flex flex-col items-center">
                         <span className="text-sm text-gray-500 dark:text-gray-400 bg-white/80 dark:bg-black/30 px-4 rounded-full backdrop-blur-sm transition-all group-hover:bg-cyan-500/10">
-                            Explore
+                            Click me to explore
                         </span>
                         <motion.div
                             animate={{ y: [0, 10, 0] }}
