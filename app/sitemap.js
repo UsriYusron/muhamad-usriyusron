@@ -6,7 +6,7 @@ import Article from '@/lib/models/Article';
  * Menghasilkan sitemap.xml secara dinamis untuk crawler Google & search engine lainnya.
  */
 export default async function sitemap() {
-  const baseUrl = 'https://usriyusron.my.id';
+  const baseUrl = 'https://muhamad-usriyusron.site';
 
   // Daftar rute statis utama
   const routes = [

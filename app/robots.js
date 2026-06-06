@@ -16,6 +16,6 @@ export default function robots() {
         ],
       },
     ],
-    sitemap: 'https://usriyusron.my.id/sitemap.xml',
+    sitemap: 'https://muhamad-usriyusron.site/sitemap.xml',
   };
 }

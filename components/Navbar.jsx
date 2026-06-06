@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from 'next/link';
 import { useState } from "react";
 import { useSession, signOut } from "next-auth/react";
@@ -14,15 +13,10 @@ export default function Navbar() {
     <nav className="w-full fixed top-0 z-50 border-b border-solid border-black/[.08] bg-white/80 backdrop-blur dark:border-white/[.145] dark:bg-black/80">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex-shrink-0">
-          <Image
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={100}
-            height={24}
-            priority
-            className="dark:invert"
-          />
+        <Link href="/" className="flex-shrink-0 flex items-center">
+          <span className="text-2xl font-extrabold tracking-tighter text-black dark:text-white font-sans select-none">
+            Usri Yusron
+          </span>
         </Link>
 
         {/* Desktop Menu */}
@@ -73,11 +67,10 @@ export default function Navbar() {
                       <p className="text-[10px] text-neutral-500 truncate">
                         {session.user?.email}
                       </p>
-                      <span className={`inline-block mt-1 px-1.5 py-0.5 rounded text-[8px] font-bold uppercase tracking-wider ${
-                        session.user?.role === 'admin'
+                      <span className={`inline-block mt-1 px-1.5 py-0.5 rounded text-[8px] font-bold uppercase tracking-wider ${session.user?.role === 'admin'
                           ? 'bg-amber-500/10 text-amber-500 border border-amber-500/20'
                           : 'bg-neutral-500/10 text-neutral-400 border border-neutral-500/20'
-                      }`}>
+                        }`}>
                         {session.user?.role === 'admin' ? 'Administrator' : 'Writer'}
                       </span>
                     </div>
@@ -159,10 +152,10 @@ export default function Navbar() {
         `}
       >
         <div className="flex flex-col p-4 space-y-2">
-         <Link href="/" onClick={() => setIsOpen(false)} className="flex-shrink-0 px-4 py-2 text-sm font-medium text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors">
+          <Link href="/" onClick={() => setIsOpen(false)} className="flex-shrink-0 px-4 py-2 text-sm font-medium text-foreground hover:bg-gray-100 dark:hover:bg-gray-800 rounded-md transition-colors">
             No navbar here, you have to scroll until the end of the page to see it
           </Link>
-          
+
           {session ? (
             <>
               {/* User profile info header on mobile */}
@@ -198,7 +191,7 @@ export default function Navbar() {
                   Persetujuan Admin
                 </Link>
               )}
-              
+
               <button
                 type="button"
                 onClick={() => {

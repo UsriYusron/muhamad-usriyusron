@@ -47,6 +47,7 @@ export default function ArticleCard({ article }) {
           <img
             src={thumbnail}
             alt={`Thumbnail artikel: ${title}`}
+            loading="lazy"
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
         ) : (

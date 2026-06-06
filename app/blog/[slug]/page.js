@@ -27,21 +27,21 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const cleanDescription = article.excerpt 
-    ? article.excerpt.replace(/[#*`_\[\]\(\)\-]/g, '').trim() 
+  const cleanDescription = article.excerpt
+    ? article.excerpt.replace(/[#*`_\[\]\(\)\-]/g, '').trim()
     : `${article.title} - Baca artikel selengkapnya di Blog Muhamad Usri Yusron.`;
 
   return {
     title: `${article.title} | Blog`,
     description: cleanDescription,
     alternates: {
-      canonical: `https://usriyusron.my.id/blog/${slug}`,
+      canonical: `https://muhamad-usriyusron.site/blog/${slug}`,
     },
     openGraph: {
       title: article.title,
       description: cleanDescription,
       type: 'article',
-      url: `https://usriyusron.my.id/blog/${slug}`,
+      url: `https://muhamad-usriyusron.site/blog/${slug}`,
       publishedTime: article.publishedAt,
       authors: [article.authorName || 'Muhamad Usri Yusron'],
       images: article.thumbnail ? [{ url: article.thumbnail }] : [],
@@ -213,6 +213,7 @@ export default async function ArticlePage({ params }) {
                     <img
                       src={cover}
                       alt={`Cover pendukung ${idx + 2} untuk artikel: ${article.title}`}
+                      loading="lazy"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -244,6 +245,7 @@ export default async function ArticlePage({ params }) {
                     <img
                       src={p.imageUrl}
                       alt={`Gambar pendukung untuk paragraf ${idx + 1}`}
+                      loading="lazy"
                       className="w-full h-full object-cover"
                     />
                   </div>

@@ -19,7 +19,7 @@ const jsonLd = {
   '@type': 'Person',
   name: 'Muhamad Usri Yusron',
   jobTitle: 'Full Stack Developer & AI Engineer',
-  url: 'https://muhamad-usriyusron.vercel.app/',
+  url: 'https://muhamad-usriyusron.site',
   image: 'https://i.imgur.com/XTrZl3g.jpeg',
   sameAs: [
     'https://github.com/UsriYusron',
@@ -48,7 +48,7 @@ const jsonLd = {
 };
 
 export const metadata = {
-  metadataBase: new URL('https://muhamad-usriyusron.vercel.app/'),
+  metadataBase: new URL('https://muhamad-usriyusron.site'),
   title: {
     default: 'Muhamad Usri Yusron | Full Stack Developer & AI Engineer',
     template: '%s | Muhamad Usri Yusron',
@@ -68,7 +68,7 @@ export const metadata = {
     'Computer Vision',
     'NLP'
   ],
-  authors: [{ name: 'Muhamad Usri Yusron', url: 'https://muhamad-usriyusron.vercel.app/' }],
+  authors: [{ name: 'Muhamad Usri Yusron', url: 'https://muhamad-usriyusron.site' }],
   creator: 'Muhamad Usri Yusron',
   publisher: 'Muhamad Usri Yusron',
   robots: {
@@ -85,7 +85,7 @@ export const metadata = {
   openGraph: {
     type: 'website',
     locale: 'id_ID',
-    url: 'https://muhamad-usriyusron.vercel.app/',
+    url: 'https://muhamad-usriyusron.site',
     title: 'Muhamad Usri Yusron | Full Stack Developer & AI Engineer',
     description: 'Portfolio & Blog of Muhamad Usri Yusron. Full Stack Developer specializing in Web Development, Machine Learning, Computer Vision, and Natural Language Processing.',
     siteName: 'Muhamad Usri Yusron Portfolio',
@@ -106,7 +106,7 @@ export const metadata = {
     creator: '@usriyusron',
   },
   alternates: {
-    canonical: 'https://muhamad-usriyusron.vercel.app/',
+    canonical: 'https://muhamad-usriyusron.site',
   },
   verification: {
     google: 'ILWdl7aiqdq0Ai2R8qkZwaCBIAk1fknaQO_rv2rpFLI',

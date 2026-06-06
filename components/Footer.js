@@ -101,8 +101,8 @@ export function Content() {
         <div className="h-full w-full flex flex-col justify-center items-center">
 
             <div className="py-8 px-12 h-full w-full flex flex-col justify-between">
-                <div className="flex justify-between flex-col  sm:flex-row items-end p-20">
-                    <h1 className="text-[14vw] leading-[0.8] ">Thanks for Visiting</h1>
+                <div className="flex justify-between flex-col sm:flex-row items-end p-20">
+                    <div className="text-[14vw] leading-[0.8] font-bold">Thanks for Visiting</div>
                 </div>
 
                 <div className="flex justify-between flex-col gap-4 sm:flex-row items-end shrink-0 gap-20">
