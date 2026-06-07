@@ -244,7 +244,7 @@ export default function AIChatButton() {
                   <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-emerald-500 border-2 border-white dark:border-zinc-950 rounded-full animate-pulse" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">Usri AI Assistant</h3>
+                  <h3 className="text-sm font-semibold text-zinc-900 dark:text-zinc-100">AI Assistant</h3>
                   <span className="text-[10px] text-zinc-500 dark:text-zinc-400 font-medium">Ready to help you</span>
                 </div>
               </div>
