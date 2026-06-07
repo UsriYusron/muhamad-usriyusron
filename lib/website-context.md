@@ -56,10 +56,10 @@ Usri terlibat aktif dalam beberapa organisasi dan kepanitiaan untuk meningkatkan
 ---
 
 ## Hubungi & Tautan Resmi
-* **Website Resmi**: [muhamad-usriyusron.site](https://muhamad-usriyusron.site)
-* **GitHub**: [github.com/UsriYusron](https://github.com/UsriYusron)
-* **LinkedIn**: [linkedin.com/in/muhamad-usriyusron](https://www.linkedin.com/in/muhamad-usriyusron/)
-* **WhatsApp**: [+62 838-2740-6460](https://wa.me/6283827406460)
+* **Website Resmi**: https://muhamad-usriyusron.site
+* **GitHub**: https://github.com/UsriYusron
+* **LinkedIn**: https://www.linkedin.com/in/muhamad-usriyusron/
+* **WhatsApp**: https://wa.me/6283827406460
 
 ---
 
