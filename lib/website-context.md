@@ -39,9 +39,9 @@ Usri memiliki pengalaman kerja baik sebagai staf magang (internship), pekerja le
 
 ## Sertifikat & Penghargaan
 Selain fokus belajar di dalam kelas, Usri juga aktif dalam mengikuti beberapa bootcamp dan pelatihan untuk meningkatkan skill dan keahliannya dalam software engineer:
-1. **Belajar Dasar Pemrograman Javascript** yang diselenggarakan oleh Dicoding ([Sertifikat](https://www.dicoding.com/certificates/1OP81YG2VZQK))
-2. **Belajar Dasar Pemrograman untuk Menjadi Pengembang Software** yang diselenggarakan oleh Dicoding ([Sertifikat](https://www.dicoding.com/certificates/4EXGN8Q5EZRL))
-3. **Belajar Dasar Manajemen Proyek** yang diselenggarakan oleh Dicoding ([Sertifikat](https://www.dicoding.com/certificates/JMZV900L3PN9))
+1. **Belajar Dasar Pemrograman Javascript** yang diselenggarakan oleh Dicoding (https://www.dicoding.com/certificates/1OP81YG2VZQK)
+2. **Belajar Dasar Pemrograman untuk Menjadi Pengembang Software** yang diselenggarakan oleh Dicoding (https://www.dicoding.com/certificates/4EXGN8Q5EZRL)
+3. **Belajar Dasar Manajemen Proyek** yang diselenggarakan oleh Dicoding (https://www.dicoding.com/certificates/JMZV900L3PN9)
 
 ---
 
@@ -56,10 +56,10 @@ Usri terlibat aktif dalam beberapa organisasi dan kepanitiaan untuk meningkatkan
 ---
 
 ## Hubungi & Tautan Resmi
-* **Website Resmi**: [website pribadi](https://muhamad-usriyusron.site)
-* **GitHub**: [Repositori Github](https://github.com/UsriYusron)
-* **LinkedIn**: [Linkedin](https://www.linkedin.com/in/muhamad-usriyusron/)
-* **WhatsApp**: [whatsapp](https://wa.me/6283827406460)
+* **Website Resmi**: (https://muhamad-usriyusron.site)
+* **GitHub**: (https://github.com/UsriYusron)
+* **LinkedIn**: (https://www.linkedin.com/in/muhamad-usriyusron/)
+* **WhatsApp**: (https://wa.me/6283827406460)
 
 ---
 
