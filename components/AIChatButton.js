@@ -25,14 +25,14 @@ export default function AIChatButton() {
 
   const welcomeMessage = {
     role: 'assistant',
-    content: 'Halo! Saya adalah **Usri AI Assistant**. 🤖\n\nSaya diprogram dengan data portfolio Muhamad Usri Yusron. Ada yang bisa saya bantu mengenai profil, keahlian, riwayat pengalaman, atau proyek Usri?',
+    content: 'Halo! Saya adalah **AI Assistant**. 🤖\n\nSaya diprogram dengan data portfolio Muhamad Usri Yusron. Ada yang bisa saya bantu mengenai profil, keahlian, riwayat pengalaman, atau proyek Usri?',
     timestamp: new Date().toISOString()
   };
 
   // Ensure client-side mounting
   useEffect(() => {
     setMounted(true);
-    
+
     // Load chat history from localStorage
     const savedMessages = localStorage.getItem('usri_ai_chat_history');
     if (savedMessages) {
@@ -153,19 +153,19 @@ export default function AIChatButton() {
       if (line.trim().startsWith('- ') || line.trim().startsWith('* ')) {
         const bulletContent = content.trim().substring(2);
         return (
-          <li 
-            key={index} 
-            className="list-disc list-inside ml-2 my-1 text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed" 
-            dangerouslySetInnerHTML={{ __html: bulletContent }} 
+          <li
+            key={index}
+            className="list-disc list-inside ml-2 my-1 text-sm leading-relaxed"
+            dangerouslySetInnerHTML={{ __html: bulletContent }}
           />
         );
       }
 
       return (
-        <p 
-          key={index} 
-          className="text-sm text-zinc-700 dark:text-zinc-300 leading-relaxed mb-1.5 min-h-[1.2rem]" 
-          dangerouslySetInnerHTML={{ __html: content }} 
+        <p
+          key={index}
+          className="text-sm leading-relaxed mb-1.5 min-h-[1.2rem]"
+          dangerouslySetInnerHTML={{ __html: content }}
         />
       );
     });
@@ -186,11 +186,11 @@ export default function AIChatButton() {
             >
               <span>Tanya Usri AI! </span>
               <Sparkles className="w-3.5 h-3.5 animate-bounce" />
-              <button 
+              <button
                 onClick={(e) => {
                   e.stopPropagation();
                   setShowNotification(false);
-                }} 
+                }}
                 className="hover:bg-white/20 p-0.5 rounded ml-1 transition-colors"
               >
                 <X className="w-3 h-3" />
@@ -207,11 +207,10 @@ export default function AIChatButton() {
           }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center cursor-pointer shadow-2xl transition-colors duration-300 z-50 border border-white/10 ${
-            isOpen 
-              ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900' 
-              : 'bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-600 text-white'
-          }`}
+          className={`relative w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center cursor-pointer shadow-2xl transition-colors duration-300 z-50 border border-white/10 ${isOpen
+            ? 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900'
+            : 'bg-gradient-to-tr from-cyan-500 via-blue-600 to-indigo-600 text-white'
+            }`}
           aria-label="Toggle AI Chat"
         >
           {/* Pulse Outer Aura when closed */}
@@ -271,26 +270,23 @@ export default function AIChatButton() {
               {messages.map((msg, index) => (
                 <div
                   key={index}
-                  className={`flex gap-3 max-w-[85%] ${
-                    msg.role === 'user' ? 'ml-auto flex-row-reverse' : 'mr-auto'
-                  }`}
+                  className={`flex gap-3 max-w-[85%] ${msg.role === 'user' ? 'ml-auto flex-row-reverse' : 'mr-auto'
+                    }`}
                 >
                   {/* Avatar Icon */}
-                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-xs font-semibold ${
-                    msg.role === 'user'
-                      ? 'bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300'
-                      : 'bg-gradient-to-tr from-cyan-500 to-blue-500 text-white'
-                  }`}>
+                  <div className={`w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0 text-xs font-semibold ${msg.role === 'user'
+                    ? 'bg-zinc-200 dark:bg-zinc-800 text-zinc-700 dark:text-zinc-300'
+                    : 'bg-gradient-to-tr from-cyan-500 to-blue-500 text-white'
+                    }`}>
                     {msg.role === 'user' ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4" />}
                   </div>
 
                   {/* Message Bubble */}
                   <div
-                    className={`p-3 rounded-2xl text-sm ${
-                      msg.role === 'user'
-                        ? 'bg-zinc-900 text-white dark:bg-zinc-100 dark:text-zinc-950 rounded-tr-none shadow-sm'
-                        : 'bg-zinc-100 dark:bg-zinc-900/60 border border-zinc-200/30 dark:border-zinc-800/30 text-zinc-900 dark:text-zinc-100 rounded-tl-none shadow-sm'
-                    }`}
+                    className={`p-3 rounded-2xl text-sm ${msg.role === 'user'
+                      ? 'bg-black text-[#00FFFF] dark:bg-zinc-900 dark:text-[#00FFFF] rounded-tr-none shadow-sm font-medium'
+                      : 'bg-zinc-100 dark:bg-zinc-900/60 border border-zinc-200/30 dark:border-zinc-800/30 text-zinc-700 dark:text-zinc-300 rounded-tl-none shadow-sm'
+                      }`}
                   >
                     {renderMessageContent(msg.content)}
                   </div>

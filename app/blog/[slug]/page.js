@@ -102,7 +102,7 @@ export default async function ArticlePage({ params }) {
     : null;
 
   return (
-    <main className="min-h-screen bg-neutral-950 text-neutral-100">
+    <main className="min-h-screen bg-neutral-950 text-neutral-100 overflow-x-hidden">
       {/* Navigation Arrows (Space-between layaknya navbar tanpa background) */}
       <div className="fixed top-4 left-4 right-4  hidden md:flex items-center justify-between px-8 p-4">
         {/* Panah Kiri (Kembali ke Beranda '/') */}

@@ -26,7 +26,7 @@ export default async function BlogPage({ searchParams }) {
   const { articles, totalPages } = await getPublishedArticles(page, 10);
 
   return (
-    <main className="min-h-screen bg-neutral-950 text-neutral-100">
+    <main className="min-h-screen bg-neutral-950 text-neutral-100 overflow-x-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Header */}
         <header className="mb-12">

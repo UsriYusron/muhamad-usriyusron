@@ -18,7 +18,7 @@ export async function POST(req) {
     // Jika API Key belum diset, berikan respon mock yang membantu instruksi konfigurasi
     if (!apiKey) {
       return NextResponse.json({
-        content: `**Halo! Saya adalah Usri AI Assistant.** 👋\n\nSepertinya kunci API Groq (\`GROQ_API_KEY\`) belum ditambahkan ke file \`.env.local\` Anda.\n\n**Cara mengonfigurasinya:**\n1. Buka file \`.env.local\` di direktori utama proyek Anda.\n2. Tambahkan baris baru:\n   \`\`\`env\n   GROQ_API_KEY=KUNCI_API_GROQ_ANDA\n   \`\`\`\n3. Restart server pengembangan Next.js (\`npm run dev\`).\n\nSetelah itu, saya akan dapat berjalan secara normal dan menjawab semua pertanyaan mengenai portofolio Anda menggunakan model LLM Groq!`
+        content: `**Halo! Saya adalah AI Assistant.** 👋\n\nSepertinya kunci API Groq (\`GROQ_API_KEY\`) belum ditambahkan ke file \`.env.local\` Anda.\n\n**Cara mengonfigurasinya:**\n1. Buka file \`.env.local\` di direktori utama proyek Anda.\n2. Tambahkan baris baru:\n   \`\`\`env\n   GROQ_API_KEY=KUNCI_API_GROQ_ANDA\n   \`\`\`\n3. Restart server pengembangan Next.js (\`npm run dev\`).\n\nSetelah itu, saya akan dapat berjalan secara normal dan menjawab semua pertanyaan mengenai portofolio Anda menggunakan model LLM Groq!`
       });
     }
 
@@ -48,9 +48,9 @@ Aturan Penting:
 3. Jadilah asisten yang sopan, ramah, dan berorientasi pada hasil (membantu Usri mendapatkan klien/pekerjaan).`;
 
     // Memanggil API Groq
-    const rawModel = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
+    const rawModel = process.env.GROQ_MODEL || 'llama-3.1-8b-instant';
     const model = rawModel.trim().replace(/\s+/g, '-');
-    
+
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
       headers: {
