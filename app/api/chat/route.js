@@ -48,7 +48,8 @@ Aturan Penting:
 3. Jadilah asisten yang sopan, ramah, dan berorientasi pada hasil (membantu Usri mendapatkan klien/pekerjaan).`;
 
     // Memanggil API Groq
-    const model = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
+    const rawModel = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
+    const model = rawModel.trim().replace(/\s+/g, '-');
     
     const response = await fetch('https://api.groq.com/openai/v1/chat/completions', {
       method: 'POST',
