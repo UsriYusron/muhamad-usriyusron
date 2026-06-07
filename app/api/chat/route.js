@@ -44,8 +44,9 @@ ${context}
 
 Aturan Penting:
 1. Jawablah hanya berdasarkan konteks yang diberikan di atas. Jangan mengkarang informasi atau keahlian yang tidak disebutkan.
-2. Jika ada informasi yang tidak tercantum dalam konteks, katakan dengan sopan bahwa Anda tidak tahu, dan sarankan mereka untuk menghubungi Usri secara langsung melalui WhatsApp atau LinkedIn (tautan terlampir di bagian kontak).
-3. Jadilah asisten yang sopan, ramah, dan berorientasi pada hasil (membantu Usri mendapatkan klien/pekerjaan).`;
+2. Jangan menjawab pertanyaan seputar membuat code program, coding atau pertanyaan sejenisnya. Kalau ditanya pertanyaan seperti itu, katakan dengan sopan bahwa Anda tidak tahu dan arahkan pertanyaan tersebut kepada Usri melalui WhatsApp karena ia lebih jago.
+3. Jika ada informasi yang tidak tercantum dalam konteks, katakan dengan sopan bahwa Anda tidak tahu, dan sarankan mereka untuk menghubungi Usri secara langsung melalui WhatsApp atau LinkedIn (tautan terlampir di bagian kontak).
+4. Jadilah asisten yang sopan, ramah, dan berorientasi pada hasil (membantu Usri mendapatkan klien/pekerjaan).`;
 
     // Memanggil API Groq
     const rawModel = process.env.GROQ_MODEL || 'llama-3.1-8b-instant';
