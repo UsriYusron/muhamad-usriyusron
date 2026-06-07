@@ -10,6 +10,7 @@
 * **Nama**: Muhamad Usri Yusron
 * **Peran**: Full Stack Developer & AI Engineer
 * **Lokasi**: Jakarta, Indonesia
+* **Tempat & tanggal lahir**: Tangerang, 10 Mei 2002
 * **Pendidikan**: Gelar Ilmu Komputer (Computer Science Degree) di Itenas Bandung
 * **Pengalaman**: Lebih dari 2 tahun di bidang rekayasa perangkat lunak (Software Engineering) dan telah merampungkan lebih dari 20 proyek.
 
@@ -21,6 +22,7 @@ Usri adalah seorang Full Stack Developer yang berfokus pada pembuatan aplikasi w
 * **Database & Storage**: MongoDB (NoSQL), SQL Databases (MySQL/PostgreSQL)
 * **Artificial Intelligence & Data Science**:
   * Machine Learning
+  * Data Science
   * Computer Vision (Penglihatan Komputer)
   * Natural Language Processing (NLP)
   * Large Language Models (LLM)
@@ -32,6 +34,24 @@ Usri memiliki pengalaman kerja baik sebagai staf magang (internship), pekerja le
 1. Pembangunan arsitektur web modern menggunakan kerangka kerja Next.js dan Laravel.
 2. Integrasi model pembelajaran mesin ke dalam sistem web yang responsif.
 3. Manajemen database skala menengah ke atas secara terstruktur.
+
+---
+
+## Sertifikat & Penghargaan
+Selain fokus belajar di dalam kelas, Usri juga aktif dalam mengikuti beberapa bootcamp dan pelatihan untuk meningkatkan skill dan keahliannya dalam software engineer:
+1. Belajar Dasar Pemrograman Javascript yang diselenggarakan oleh Dicoding (https://www.dicoding.com/certificates/1OP81YG2VZQK)
+2. Belajar Dasar Pemrograman untuk Menjadi Pengembang Software yang diselenggarakan oleh Dicoding (https://www.dicoding.com/certificates/4EXGN8Q5EZRL)
+3. Belajar Dasar Manajemen Proyek yang diselenggarakan oleh Dicoding (https://www.dicoding.com/certificates/JMZV900L3PN9)
+
+---
+
+## Pengalaman Organisasi dan Kepemimpinan
+Usri terlibat aktif dalam beberapa organisasi dan kepanitiaan untuk meningkatkan kemampuan kepemimpinan dan manajemen organisasi sejak duduk di bangku SMA hingga saat ini, diantaranya adalah:
+1. Ketua Departemen Isu Keumatan – Keluarga Muslim Itenas
+2. Ketua Koordinator Divisi Acara pada kegiatan Kampung Ramadhan Festival yang diselenggarakan oleh Keluarga Muslim Itenas
+3. Staff Divisi Acara pada kegiatan Muslim on Campus yang diselenggarakan oleh Keluarga Muslim Itenas
+4. Staff Divisi Liaison Officer (LO) pada kegiatan Itenas E-Sport Competition 2022 yang diselenggarakan oleh Itenas Bandung
+5. Anggota Organisasi Pelajar Pondok Pesantren Modern An Nawawi Al Bantani
 
 ---
 
