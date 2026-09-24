@@ -30,7 +30,7 @@ Usri adalah seorang Full Stack Developer yang berfokus pada pembuatan aplikasi w
 ---
 
 ## Pengalaman Profesional
-Usri memiliki pengalaman kerja baik sebagai staf magang (internship), pekerja lepas (freelance), maupun asisten laboratorium machine learning di Itenas Bandung yang berfokus pada:
+Usri memiliki pengalaman kerja baik sebagai staf magang (internship), pekerja lepas (freelance), maupun part-time asisten laboratorium machine learning di Itenas Bandung yang berfokus pada:
 1. Pembangunan arsitektur web modern menggunakan kerangka kerja Next.js dan Laravel.
 2. Integrasi model pembelajaran mesin ke dalam sistem web yang responsif.
 3. Manajemen database skala menengah ke atas secara terstruktur.

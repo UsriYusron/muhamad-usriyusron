@@ -10,6 +10,7 @@ import AboutSection from '@/components/AboutSection';
 import Lanyard from '@/components/Lanyard';
 import ExperienceSection from '@/components/Experience';
 import LoadingWithText from '@/components/Loading';
+import { HeroParallaxDemo } from '@/components/HeroParallax'
 
 export default function HomeClient() {
   const [currentSection, setCurrentSection] = useState(0);
@@ -56,6 +57,7 @@ export default function HomeClient() {
       <HeroSection />
       <AboutSection />
       <ExperienceSection />
+      <HeroParallaxDemo />
 
       <section className="bg-white dark:bg-gray-800 min-h-screen py-12 relative overflow-hidden">
         <div className="absolute inset-0 flex items-center justify-center opacity-5 dark:opacity-10 pointer-events-none select-none">
